@@ -36,18 +36,16 @@ namespace PhoneWord.Views
         {
             // TODO: Validate input
 
-            // Convert the phonenumber string to an int array
-            int[] tNumber = new int[PhoneNumberText.Text.Length];
-            for (int i = 0; i < PhoneNumberText.Text.Length; i++)
-                tNumber[i] = int.Parse(PhoneNumberText.Text.Substring(i,1));
+            // Convert the phonenumber string to an char array
+            char[] tDigits = PhoneNumberText.Text.ToCharArray();
 
-            PhoneNumber phoneNumber = new PhoneNumber(tNumber);
-            phoneNumber.FindStrings();
+            PhoneNumber phoneNumber = new PhoneNumber(tDigits);
+            phoneNumber.FetchCharCombinations();
 
             WordsList.Clear();
             // Convert string to words
-            for (int i = 0; i < phoneNumber.StringsList.Count; i++)
-                WordsList.Add(new WordString(phoneNumber.StringsList.ElementAt<string>(i)));
+            for (int i = 0; i < phoneNumber.CharCombinations.Count; i++)
+                WordsList.Add(new WordString(phoneNumber.CharCombinations.ElementAt<string>(i)));
             
         }
 

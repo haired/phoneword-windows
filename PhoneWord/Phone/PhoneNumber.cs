@@ -12,33 +12,36 @@ namespace PhoneWord.Phone
 
         public PhoneNumber() { }
 
-        public PhoneNumber(int[] tNumber)
+        public PhoneNumber(char[] DigitArray)
         {
-            _number = tNumber;
+            this.DigitArray = DigitArray;
         }
 
-        private int[] _number;
-        public int[] Number
+        private char[] _digitArray;
+        public char[] DigitArray 
         {
-            set { _number = value; }
-            get { return _number; }
+            set { _digitArray = value; }
+            get { return _digitArray; }
         }
 
-        private ObservableCollection<string> _stringsList;
+        private ObservableCollection<string> _charCombinations;
         /// <summary>
         /// Hold the list of hidden strings in the Phone Number
         /// </summary>
-        public ObservableCollection<string> StringsList
+        public ObservableCollection<string> CharCombinations
         {
-            get { return _stringsList; }
+            get { return _charCombinations; }
         }
 
 
         /// <summary>
+        /// DEPRECATED
         /// Find the strings hidden in the phone number <code>Number</code> and store them in the <code>StringsList</code> Member
         /// </summary>
         /// <returns>List of strings out the number</returns>
         /// <seealso cref="StringsList"/>
+        /*
+        [Obsolete("Use ")]
         public void FindStrings()
         {
             
@@ -71,8 +74,39 @@ namespace PhoneWord.Phone
                     }
                 }
             }
+        }
+        //*/
 
-             
+        /// <summary>
+        /// List the differents combinations of char which can be formed with <code>DigitArray</code> in the <code>CharCombinations</code> member
+        /// </summary>
+        public void FetchCharCombinations() 
+        {
+            _charCombinations = new ObservableCollection<string>();
+            Keypad keypad = new Keypad();
+            char[] charArray = new char[DigitArray.Length];
+
+            // Initialize the result with first string (the phone number itself)
+            for (int i = 0; i < DigitArray.Length; i++)
+                charArray[i] = keypad.GetCharAt(DigitArray[i], 0);
+
+            for (int fixedIndex = 0; fixedIndex < DigitArray.Length; ++fixedIndex)
+            {
+                for (int i = 0; i < DigitArray.Length; ++i)
+                {
+                    if (i != fixedIndex)
+                    {
+                        int keyNbChar = keypad.GetKeyNumberOfChar(DigitArray[i]); // Number of characters on the key
+                        for (int k = 0; k < keyNbChar; ++k)
+                        {
+                            charArray[i] = keypad.GetCharAt(DigitArray[i], k);
+                            _charCombinations.Add(new string(charArray));
+                        }
+                    }
+                }
+            }
+
+
         }
 
 

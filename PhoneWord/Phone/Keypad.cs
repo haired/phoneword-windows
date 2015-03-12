@@ -9,37 +9,62 @@ namespace PhoneWord.Phone
     public class Keypad
     {
 
-        public static readonly int MAX_CHAR_COUNT = 4; // Maximum Number of characher on a key
+        // Set members static
 
         public Keypad()
         {
             // TODO Set as resource
-            phoneKeypad = new Dictionary<int, string>();
-            phoneKeypad.Add(0, "0");
-            phoneKeypad.Add(1, "1");
-            phoneKeypad.Add(2, "2ABC");
-            phoneKeypad.Add(3, "3DEF");
-            phoneKeypad.Add(4, "4GHI");
-            phoneKeypad.Add(5, "5JKL");
-            phoneKeypad.Add(6, "6MNO");
-            phoneKeypad.Add(7, "7PQRS");
-            phoneKeypad.Add(8, "8TUV");
-            phoneKeypad.Add(9, "9WXYZ"); //z?
+            _phoneKeypad = new Dictionary<char, string>();
+            _phoneKeypad.Add('0', "0");
+            _phoneKeypad.Add('1', "1");
+            _phoneKeypad.Add('2', "2ABC");
+            _phoneKeypad.Add('3', "3DEF");
+            _phoneKeypad.Add('4', "4GHI");
+            _phoneKeypad.Add('5', "5JKL");
+            _phoneKeypad.Add('6', "6MNO");
+            _phoneKeypad.Add('7', "7PQRS");
+            _phoneKeypad.Add('8', "8TUV");
+            _phoneKeypad.Add('9', "9WXYZ"); //z?
 
         }
 
 
-        public char getCharKey(int key, int position)
+        /// <summary>
+        /// Get a character on a key, at a particular position
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="position"></param>
+        /// <returns></returns>
+        public char GetCharAt(char key, int position)
         {
-            if ((key == 0) || (key == 1))
-                return phoneKeypad[key].ElementAt(0);
-            else if (phoneKeypad.ContainsKey(key) && (0 <= position && position <= MAX_CHAR_COUNT -1))
-                return phoneKeypad[key].ElementAt(position);
-            else
-                return '\0';
+            if (_phoneKeypad.ContainsKey(key))
+                if(position < GetKeyNumberOfChar(key))
+                    return _phoneKeypad[key].ElementAt(position);
+
+            throw new ArgumentOutOfRangeException("No Char at key:" + key + " and position:" + position);
+            //return '\0';
         }
 
-        public  Dictionary<int, string> phoneKeypad ;
+
+        /// <summary>
+        /// Get the number of character on a particular key
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public int GetKeyNumberOfChar(char key) 
+        {
+            return PhoneKeypad[key].Length;
+        }
+
+
+        private Dictionary<char, string> _phoneKeypad ;
+        public Dictionary<char, string> PhoneKeypad
+        {
+            get 
+            {
+                return _phoneKeypad;
+            }
+        }
 
     }
 }
