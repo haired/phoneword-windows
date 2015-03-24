@@ -59,7 +59,7 @@
             <toolkit:PhoneTextBox Name="PhoneNumberText"  Grid.Row="1"
                                   Hint="Enter a Phone Number" 
                                   InputScope="TelephoneNumber"
-                                  ActionIcon="Assets/Icons/arrow.png"
+                                  ActionIcon="/Assets/Icons/arrow.png"
                                   ActionIconTapped="PhoneNumberText_ActionIconTapped" 
                                   TextChanged="PhoneNumberText_TextChanged"
                                   Grid.Column="0"/>
