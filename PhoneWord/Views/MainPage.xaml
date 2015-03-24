@@ -93,7 +93,7 @@
         <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="True" IsVisible="True">
             <shell:ApplicationBarIconButton Click="AppBarSearch_Click" IconUri="/Assets/Icons/search.png" Text="search" />
             <shell:ApplicationBarIconButton Click="AppBarClear_Click" IconUri="/Assets/Icons/close.png" Text="clear" />
-            <shell:ApplicationBarIconButton Click="AppBarSettings_Click" IconUri="/Assets/Icons/settings.png" Text="settings" />
+            <!--<shell:ApplicationBarIconButton Click="AppBarSettings_Click" IconUri="/Assets/Icons/settings.png" Text="settings" />-->
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Click="HelpMenuItem_Click" Text="Help" />
                 <shell:ApplicationBarMenuItem Click="AboutMenuItem_Click" Text="About" />

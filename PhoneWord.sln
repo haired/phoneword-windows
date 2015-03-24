@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneWord", "PhoneWord\PhoneWord.csproj", "{1F284068-4891-4F4D-AB6F-C29763510606}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp1", "TestApp1\TestApp1.csproj", "{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,26 +41,6 @@ Global
 		{1F284068-4891-4F4D-AB6F-C29763510606}.Release|x86.ActiveCfg = Release|x86
 		{1F284068-4891-4F4D-AB6F-C29763510606}.Release|x86.Build.0 = Release|x86
 		{1F284068-4891-4F4D-AB6F-C29763510606}.Release|x86.Deploy.0 = Release|x86
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Debug|ARM.ActiveCfg = Debug|ARM
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Debug|ARM.Build.0 = Debug|ARM
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Debug|ARM.Deploy.0 = Debug|ARM
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Debug|Mixed Platforms.Deploy.0 = Debug|x86
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Debug|x86.ActiveCfg = Debug|x86
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Debug|x86.Build.0 = Debug|x86
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Debug|x86.Deploy.0 = Debug|x86
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Release|Any CPU.ActiveCfg = Release|x86
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Release|ARM.ActiveCfg = Release|ARM
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Release|ARM.Build.0 = Release|ARM
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Release|ARM.Deploy.0 = Release|ARM
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Release|Mixed Platforms.Build.0 = Release|x86
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Release|Mixed Platforms.Deploy.0 = Release|x86
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Release|x86.ActiveCfg = Release|x86
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Release|x86.Build.0 = Release|x86
-		{F211C0C1-BAC7-4782-AB1A-7533FB3E00C6}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

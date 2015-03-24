@@ -29,14 +29,28 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <phone:Pivot>
                 <phone:PivotItem Header="Help">
-                    <TextBlock>
-                        
-                    </TextBlock>
+                    <ScrollViewer>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock TextWrapping="Wrap">
+                                You can give your phone number using words instead of hard remembering digits
+                                for example 32874992 can be EATPIZZA (eat pizza). This is done using the letters
+                                relative to the digit on the keypad.<LineBreak/>
+                            </TextBlock>
+                            <Image Margin="50,20" Source="Assets/Images/phonekeypad.png"/>
+                            <TextBlock>
+                            Note that a phone number has various letters combinations.<LineBreak/>
+                                This app lets you generate all letters combinations relative to a phone 
+                                number, so that you can pick the one that suits you.
+                            </TextBlock>
+                        </StackPanel>
+                    </ScrollViewer>
                 </phone:PivotItem>
                     
+                <!--
                 <phone:PivotItem Header="Settings">
                     
                 </phone:PivotItem>
+                -->
             </phone:Pivot>
         </Grid>
     </Grid>

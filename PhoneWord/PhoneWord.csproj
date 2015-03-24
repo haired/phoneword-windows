@@ -153,13 +153,17 @@
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Icons\arrow.png" />
+    <Content Include="Assets\Icons\arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Icons\close.png" />
     <Content Include="Assets\Icons\questionmark.png" />
     <Content Include="Assets\Icons\save.png" />
     <Content Include="Assets\Icons\search.png" />
     <Content Include="Assets\Icons\settings.png" />
-    <Content Include="Assets\Images\keypad.jpg" />
+    <Content Include="Assets\Images\phonekeypad.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

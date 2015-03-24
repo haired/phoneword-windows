@@ -123,7 +123,7 @@ namespace PhoneWord.Phone
 
             // Initialize the result with first string (the phone number itself)
             for (int i = 0; i < DigitArray.Length; i++)
-                charArray[i] = keypad.GetCharAt(DigitArray[i], 0);
+                charArray[i] = keypad.GetCharAt(DigitArray[i], 1); // TODO init at 0 if we include letters
 
             _charCombinations.Add(new string(charArray));
             for (int permuteIndex = DigitArray.Length - 1; permuteIndex >= 0; --permuteIndex)
@@ -131,7 +131,7 @@ namespace PhoneWord.Phone
                 for (int i = 0; i <= permuteIndex; ++i)
                 {
                     int keyNbChar = keypad.GetKeyNumberOfChar(DigitArray[i]); // Number of characters on the key
-                    for (int k = 0; k < keyNbChar; ++k)
+                    for (int k = 1; k < keyNbChar; ++k) // TODO k start at 0 if we include letters
                     {
                         charArray[i] = keypad.GetCharAt(DigitArray[i], k);
                         _charCombinations.Add(new string(charArray));
