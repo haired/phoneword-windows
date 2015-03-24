@@ -61,6 +61,7 @@
                                   InputScope="TelephoneNumber"
                                   ActionIcon="Assets/Icons/arrow.png"
                                   ActionIconTapped="PhoneNumberText_ActionIconTapped" 
+                                  TextChanged="PhoneNumberText_TextChanged"
                                   Grid.Column="0"/>
                     
             <ListBox Name="WordListBox"
@@ -90,10 +91,11 @@
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="True" IsVisible="True">
+            <shell:ApplicationBarIconButton Click="AppBarSearch_Click" IconUri="/Assets/Icons/search.png" Text="search" />
             <shell:ApplicationBarIconButton Click="AppBarClear_Click" IconUri="/Assets/Icons/close.png" Text="clear" />
             <shell:ApplicationBarIconButton Click="AppBarSettings_Click" IconUri="/Assets/Icons/settings.png" Text="settings" />
-            <shell:ApplicationBarIconButton Click="AppBarHelp_Click" IconUri="/Assets/Icons/questionmark.png" Text="help" />
             <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Click="HelpMenuItem_Click" Text="Help" />
                 <shell:ApplicationBarMenuItem Click="AboutMenuItem_Click" Text="About" />
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>

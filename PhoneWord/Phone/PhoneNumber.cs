@@ -18,7 +18,7 @@ namespace PhoneWord.Phone
         }
 
         private char[] _digitArray;
-        public char[] DigitArray 
+        public char[] DigitArray
         {
             set { _digitArray = value; }
             get { return _digitArray; }
@@ -77,6 +77,8 @@ namespace PhoneWord.Phone
         }
         //*/
 
+
+        /*
         /// <summary>
         /// List the differents combinations of char which can be formed with <code>DigitArray</code> in the <code>CharCombinations</code> member
         /// </summary>
@@ -105,10 +107,38 @@ namespace PhoneWord.Phone
                     }
                 }
             }
-
-
         }
+        //*/
 
+
+
+        /// <summary>
+        /// List the differents combinations of char which can be formed with <code>DigitArray</code> in the <code>CharCombinations</code> member
+        /// </summary>
+        public void FetchCharCombinations()
+        {
+            _charCombinations = new ObservableCollection<string>();
+            Keypad keypad = new Keypad();
+            char[] charArray = new char[DigitArray.Length];
+
+            // Initialize the result with first string (the phone number itself)
+            for (int i = 0; i < DigitArray.Length; i++)
+                charArray[i] = keypad.GetCharAt(DigitArray[i], 0);
+
+            _charCombinations.Add(new string(charArray));
+            for (int permuteIndex = DigitArray.Length - 1; permuteIndex >= 0; --permuteIndex)
+            {
+                for (int i = 0; i <= permuteIndex; ++i)
+                {
+                    int keyNbChar = keypad.GetKeyNumberOfChar(DigitArray[i]); // Number of characters on the key
+                    for (int k = 0; k < keyNbChar; ++k)
+                    {
+                        charArray[i] = keypad.GetCharAt(DigitArray[i], k);
+                        _charCombinations.Add(new string(charArray));
+                    }
+                }
+            }
+        }
 
     }
 }

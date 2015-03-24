@@ -37,15 +37,27 @@
                 <Image Source="/Assets/ApplicationIcon.png" Width="100"/>
                 <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" 
                             TextAlignment="Center" Style="{StaticResource PhoneTextLargeStyle}"/>
-                <TextBlock>
-                    Version: <LineBreak/>
-                    Author:  <LineBreak/>
-                    License: <LineBreak/>
-                </TextBlock>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Version: " Grid.Row="0" Grid.Column="0"/>
+                    <TextBlock Text="0.5" Grid.Row="0" Grid.Column="1"/>
+                    <TextBlock Text="Author: " Grid.Row="1" Grid.Column="0"/>
+                    <TextBlock Text="Didier G. (godidier@godidier.com)" Grid.Row="1" Grid.Column="1"/>
+                    <TextBlock Text="License: " Grid.Row="2" Grid.Column="0"/>
+                    <TextBlock Text="MIT" Grid.Row="2" Grid.Column="1"/>
+                </Grid>
             </StackPanel>
-            <StackPanel Grid.Row="2">
-                <TextBlock Text="If you enjoy please rate the application"/>
-                <Button Content="Rate "/>
+            <StackPanel Grid.Row="2" Visibility="Visible">
+                <TextBlock Text="If you enjoy please rate and share the application" HorizontalAlignment="Center"/>
+                <Button Content="Rate " Click="RateButton_Click"/>
             </StackPanel>
             
             <TextBlock Grid.Row="1">

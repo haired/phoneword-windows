@@ -49,13 +49,18 @@ namespace PhoneWord.Views
             
         }
 
+        private void ClearWordsList()
+        {
+            WordsList.Clear();
+        }
+
         private void PhoneNumberText_ActionIconTapped(object sender, EventArgs e)
         {
             ShowWordsList();
 
         }
 
-        private void AppBarHelp_Click(object sender, EventArgs e)
+        private void HelpMenuItem_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/Views/HelpPage.xaml", UriKind.Relative));
         }
@@ -72,7 +77,18 @@ namespace PhoneWord.Views
 
         private void AppBarClear_Click(object sender, EventArgs e)
         {
+            ClearWordsList();
+            PhoneNumberText.Text = String.Empty;
+        }
 
+        private void AppBarSearch_Click(object sender, EventArgs e)
+        {
+            ShowWordsList();
+        }
+
+        private void PhoneNumberText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ClearWordsList();
         }
 
         // Sample code for building a localized ApplicationBar
