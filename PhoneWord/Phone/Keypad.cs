@@ -37,12 +37,20 @@ namespace PhoneWord.Phone
         /// <returns></returns>
         public char GetCharAt(char key, int position)
         {
-            if (_phoneKeypad.ContainsKey(key))
-                if(position < GetKeyNumberOfChar(key))
-                    return _phoneKeypad[key].ElementAt(position);
-
-            throw new ArgumentOutOfRangeException("No Char at key:" + key + " and position:" + position);
-            //return '\0';
+            char c ='*';
+            try
+            {
+                if (_phoneKeypad.ContainsKey(key))
+                    if (position < GetKeyNumberOfChar(key))
+                        c = _phoneKeypad[key].ElementAt(position);
+            }
+            catch (IndexOutOfRangeException) 
+            { 
+                //c = '*' 
+            }
+            
+            
+            return c;
         }
 
 

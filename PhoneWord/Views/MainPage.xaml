@@ -62,6 +62,10 @@
                                   ActionIcon="/Assets/Icons/arrow.png"
                                   ActionIconTapped="PhoneNumberText_ActionIconTapped" 
                                   TextChanged="PhoneNumberText_TextChanged"
+                                  MaxLength="16"
+                                  DisplayedMaxLength="16"
+                                  LengthIndicatorVisible="True" 
+                                  LengthIndicatorThreshold="10" 
                                   Grid.Column="0"/>
                     
             <ListBox Name="WordListBox"

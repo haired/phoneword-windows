@@ -32,21 +32,43 @@ namespace PhoneWord.Views
             //BuildLocalizedApplicationBar();
         }
 
+        const long MAX_ALLOWED_NUMBER = 9999999999999999;
+
         private void ShowWordsList()
         {
             // TODO: Validate input
+            try
+            {
+                // Test if the entered phone number is valid
+                // can raise FormatException or OverflowException
+                long num = Int64.Parse(PhoneNumberText.Text);
+                if (num > MAX_ALLOWED_NUMBER)
+                    throw new OverflowException();
 
-            // Convert the phonenumber string to an char array
-            char[] tDigits = PhoneNumberText.Text.ToCharArray();
+                // Convert the phonenumber string to an char array
+                char[] tDigits = PhoneNumberText.Text.ToCharArray();
 
-            PhoneNumber phoneNumber = new PhoneNumber(tDigits);
-            phoneNumber.FetchCharCombinations();
+                PhoneNumber phoneNumber = new PhoneNumber(tDigits);
+                phoneNumber.FetchCharCombinations();
 
-            WordsList.Clear();
-            // Convert string to words
-            for (int i = 0; i < phoneNumber.CharCombinations.Count; i++)
-                WordsList.Add(new WordString(phoneNumber.CharCombinations.ElementAt<string>(i)));
-            
+                WordsList.Clear();
+                // Convert string to words
+                for (int i = 0; i < phoneNumber.CharCombinations.Count; i++)
+                    WordsList.Add(new WordString(phoneNumber.CharCombinations.ElementAt<string>(i)));
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex);
+
+                string errMsg = "Oops..! We can not convert this.\n";
+                if (ex is FormatException)
+                    errMsg += "Please, consider entering a valid phone number\n";
+                if (ex is OverflowException)
+                    errMsg += "Check if the number you entered is not too long...\n";
+
+                MessageBox.Show((errMsg));
+            }
+
         }
 
         private void ClearWordsList()
@@ -108,6 +130,6 @@ namespace PhoneWord.Views
         //}
 
 
-        
+
     }
 }
