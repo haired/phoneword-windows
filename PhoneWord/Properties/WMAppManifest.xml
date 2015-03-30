@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{1f284068-4891-4f4d-ab6f-c29763510606}" Title="PhoneWord" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="PhoneWord author" Description="Sample description" Publisher="PhoneWord" PublisherID="{8e7f8f75-7a2f-47a3-bab0-38109ab1dedb}">
+  <App xmlns="" ProductID="{1f284068-4891-4f4d-ab6f-c29763510606}" Title="PhoneWord" RuntimeType="Silverlight" Version="0.7.0.0" Genre="apps.normal" Author="Didier Gohourou &lt;godidier@godidier.com&gt;" Description="Convert your phone number to letters (or even words) !" Publisher="GoDidier" PublisherID="{8e7f8f75-7a2f-47a3-bab0-38109ab1dedb}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_SENSORS" />
