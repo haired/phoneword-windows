@@ -30,7 +30,7 @@
             <phone:Pivot>
                 <phone:PivotItem Header="Help">
                     <ScrollViewer>
-                        <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Vertical" Margin="2,5">
                             <TextBlock TextWrapping="Wrap">
                                 You can give your phone number using words instead of hard remembering digits
                                 for example 32874992 can be EATPIZZA (eat pizza). This is done using the letters
