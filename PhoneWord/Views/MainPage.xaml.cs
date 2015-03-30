@@ -12,6 +12,7 @@ using System.Collections.ObjectModel;
 
 using PhoneWord.Utils;
 using PhoneWord.Phone;
+using System.IO.IsolatedStorage;
 
 namespace PhoneWord.Views
 {
@@ -28,6 +29,23 @@ namespace PhoneWord.Views
             WordsList = new ObservableCollection<WordString>();
             WordListBox.ItemsSource = WordsList;
 
+
+            /*
+            try
+            {
+                IsolatedStorageSettings settings = IsolatedStorageSettings.ApplicationSettings;
+                if (((int)settings["convertion_mode"]) == ((int)ConvertionMode.WordsToNumber))
+
+
+                    settings.Add("search_langage", "en");
+                settings.Save();
+
+            }
+            catch (KeyNotFoundException ex) 
+            {
+                // enregistrer le ken pour la 1ere fois
+            }
+            //*/
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
@@ -111,6 +129,26 @@ namespace PhoneWord.Views
         private void PhoneNumberText_TextChanged(object sender, TextChangedEventArgs e)
         {
             ClearWordsList();
+        }
+
+        private void AppBarCall_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void CallButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SMSButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ClipBoardCopyItem_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(((WordString)WordListBox.SelectedItem).Value);
         }
 
         // Sample code for building a localized ApplicationBar

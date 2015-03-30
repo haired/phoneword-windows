@@ -21,7 +21,14 @@ namespace PhoneWord.Views
         private void AppBarSave_Click(object sender, EventArgs e)
         {
             IsolatedStorageSettings settings = IsolatedStorageSettings.ApplicationSettings;
+            if (settings.Contains("search_langage"))
+                settings.Remove("search_langage");
             settings.Add("search_langage", "en");
+
+            if (settings.Contains("convertion_mode"))
+                settings.Remove("convertion_mode");
+            settings.Add("convertion_mode", "NumberToStrings");
+
             settings.Save();
             NavigationService.GoBack();  
         }

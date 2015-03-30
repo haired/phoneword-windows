@@ -4,11 +4,10 @@
   <App xmlns="" ProductID="{1f284068-4891-4f4d-ab6f-c29763510606}" Title="PhoneWord" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="PhoneWord author" Description="Sample description" Publisher="PhoneWord" PublisherID="{8e7f8f75-7a2f-47a3-bab0-38109ab1dedb}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
-      <Capability Name="ID_CAP_NETWORKING" />
-      <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
-      <Capability Name="ID_CAP_MEDIALIB_PLAYBACK" />
       <Capability Name="ID_CAP_SENSORS" />
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
+      <Capability Name="ID_CAP_PHONEDIALER" />
+      <Capability Name="ID_CAP_CONTACTS" />
     </Capabilities>
     <Tasks>
       <DefaultTask Name="_default" NavigationPage="Views\MainPage.xaml" />

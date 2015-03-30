@@ -14,6 +14,27 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
+    
+    <!--Resources-->
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Name="StringsTemplate">
+            <StackPanel Orientation="Horizontal" Margin="0,1">
+                <Rectangle Width="10" Fill="Gray"/>
+                <TextBlock Text="{Binding Value}" Style="{StaticResource PhoneTextLargeStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Name="NumberTemplate">
+            <StackPanel Orientation="Horizontal" Margin="0,1">
+                <Rectangle Width="10" Fill="Gray"/>
+                <TextBlock Text="{Binding Value}" Style="{StaticResource PhoneTextLargeStyle}"/>
+                <Button Name="CallButton" Click="CallButton_Click"/>
+                <Button Name="SMSButton" Click="SMSButton_Click" />
+            </StackPanel>
+        </DataTemplate>
+    </phone:PhoneApplicationPage.Resources>
+    
+    
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
@@ -53,8 +74,11 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
-            <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="Find words hidden in your phone number by entering it below"/>
+
+            <StackPanel Grid.Row="0" Orientation="Vertical">
+                <TextBlock  TextWrapping="Wrap" Text="Find words hidden in your phone number by entering it below. "/>
+                <HyperlinkButton Content="What's this ?" NavigateUri="/Views/HelpPage.xaml" />
+            </StackPanel>
 
             <toolkit:PhoneTextBox Name="PhoneNumberText"  Grid.Row="1"
                                   Hint="Enter a Phone Number" 
@@ -72,32 +96,27 @@
                      Grid.Row="2">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal" Margin="0,1">
+                        <StackPanel Orientation="Horizontal" Margin="0,1" toolkit:TiltEffect.IsTiltEnabled="True" >
                             <Rectangle Width="10" Fill="Gray"/>
-                            <TextBlock Text="{Binding Value}" Style="{StaticResource PhoneTextLargeStyle}"/>
+                            <TextBlock x:Name="StringCombinationText" Text="{Binding Value}" Style="{StaticResource PhoneTextLargeStyle}"/>
+                            <toolkit:ContextMenuService.ContextMenu>
+                                <toolkit:ContextMenu>
+                                    <toolkit:MenuItem x:Name="ClipBoardCopyItem" Header="Copy to Clipboard" Click="ClipBoardCopyItem_Click"/>
+                                </toolkit:ContextMenu>
+                            </toolkit:ContextMenuService.ContextMenu>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            
-            
-            
         </Grid>
-
-        <!--Uncomment to see an alignment grid to help ensure your controls are
-            aligned on common boundaries.  The image has a top margin of -32px to
-            account for the System Tray. Set this to 0 (or remove the margin altogether)
-            if the System Tray is hidden.
-
-            Before shipping remove this XAML and the image itself.-->
-        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+        
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="True" IsVisible="True">
             <shell:ApplicationBarIconButton Click="AppBarSearch_Click" IconUri="/Assets/Icons/search.png" Text="search" />
             <shell:ApplicationBarIconButton Click="AppBarClear_Click" IconUri="/Assets/Icons/close.png" Text="clear" />
-            <!--<shell:ApplicationBarIconButton Click="AppBarSettings_Click" IconUri="/Assets/Icons/settings.png" Text="settings" />-->
+            <shell:ApplicationBarIconButton Click="AppBarSettings_Click" IconUri="/Assets/Icons/settings.png" Text="settings" />
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Click="HelpMenuItem_Click" Text="Help" />
                 <shell:ApplicationBarMenuItem Click="AboutMenuItem_Click" Text="About" />

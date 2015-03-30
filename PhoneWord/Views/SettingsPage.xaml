@@ -30,7 +30,7 @@
         <!--ContentPanel - place additional content here-->
         <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <TextBlock Text="{Binding Path=LocalizedResources.ConvertionMode, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <toolkit:ListPicker Name="ModePicker">
+            <toolkit:ListPicker Name="ConvertionPicker">
                 <!-- todo itemsource -->
                 <toolkit:ListPickerItem Content="Phone Number -> Words"/>
                 <toolkit:ListPickerItem Content="Words -> Phone Number"/>
