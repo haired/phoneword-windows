@@ -48,11 +48,11 @@
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="Version: " Grid.Row="0" Grid.Column="0"/>
-                    <TextBlock Text="0.5" Grid.Row="0" Grid.Column="1"/>
+                    <TextBlock Text="0.7.0" Grid.Row="0" Grid.Column="1"/>
                     <TextBlock Text="Author: " Grid.Row="1" Grid.Column="0"/>
                     <TextBlock Text="Didier G. (godidier@godidier.com)" Grid.Row="1" Grid.Column="1"/>
                     <TextBlock Text="License: " Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Text="MIT" Grid.Row="2" Grid.Column="1"/>
+                    <TextBlock Text="BSD" Grid.Row="2" Grid.Column="1"/>
                 </Grid>
             </StackPanel>
             <StackPanel Grid.Row="2" Visibility="Visible">
